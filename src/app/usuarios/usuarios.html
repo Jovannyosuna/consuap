@@ -1,0 +1,44 @@
+<section class="contenedor">
+  <h1>Lista de Usuarios</h1>
+  <p class="subtitulo">Datos obtenidos desde una API externa con HttpClient</p>
+
+  <!-- ===== MENSAJE DE CARGA ===== -->
+  @if (cargando()) {
+    <div class="cargando">
+      <div class="spinner"></div>
+      <p>Cargando usuarios...</p>
+    </div>
+  }
+
+  <!-- ===== MENSAJE DE ERROR ===== -->
+  @if (error()) {
+    <div class="error">
+      <p>⚠️ {{ error() }}</p>
+      <button (click)="cargarUsuarios()">Reintentar</button>
+    </div>
+  }
+
+  <!-- ===== LISTA DE USUARIOS EN TARJETAS ===== -->
+  @if (!cargando() && !error()) {
+    <p class="total">Total de registros: {{ usuarios().length }}</p>
+
+    <div class="tarjetas">
+      @for (usuario of usuarios(); track usuario.id) {
+        <article class="tarjeta">
+          <span class="id">#{{ usuario.id }}</span>
+          <h3>{{ usuario.name }}</h3>
+          <p class="username">&#64;{{ usuario.username }}</p>
+
+          <ul>
+            <li><strong>Correo:</strong> {{ usuario.email }}</li>
+            <li><strong>Teléfono:</strong> {{ usuario.phone }}</li>
+            <li><strong>Ciudad:</strong> {{ usuario.address.city }}</li>
+            <li><strong>Empresa:</strong> {{ usuario.company.name }}</li>
+          </ul>
+        </article>
+      } @empty {
+        <p class="vacio">No hay usuarios para mostrar.</p>
+      }
+    </div>
+  }
+</section>

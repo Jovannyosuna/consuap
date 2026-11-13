@@ -1,0 +1,142 @@
+.contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #1e3a5f;
+  margin-bottom: 5px;
+}
+
+.subtitulo {
+  text-align: center;
+  color: #777;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.total {
+  font-weight: bold;
+  color: #1e3a5f;
+  margin-bottom: 15px;
+}
+
+/* ===== Cuadrícula de tarjetas ===== */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.tarjeta {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid #0d6efd;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.id {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #0d6efd;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.tarjeta h3 {
+  margin: 0 0 4px 0;
+  color: #222;
+  padding-right: 45px;
+}
+
+.username {
+  color: #0d6efd;
+  margin: 0 0 15px 0;
+  font-size: 14px;
+}
+
+.tarjeta ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tarjeta li {
+  font-size: 14px;
+  color: #555;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+  word-break: break-word;
+}
+
+.tarjeta li:last-child {
+  border-bottom: none;
+}
+
+/* ===== Mensaje de carga ===== */
+.cargando {
+  text-align: center;
+  padding: 50px;
+  color: #555;
+}
+
+.spinner {
+  width: 45px;
+  height: 45px;
+  margin: 0 auto 15px;
+  border: 5px solid #ddd;
+  border-top-color: #0d6efd;
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== Mensaje de error ===== */
+.error {
+  text-align: center;
+  background: #fdecea;
+  color: #b02a37;
+  border: 1px solid #f5c2c7;
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.error button {
+  margin-top: 10px;
+  padding: 10px 25px;
+  background: #b02a37;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.error button:hover {
+  background: #8a1f2b;
+}
+
+.vacio {
+  text-align: center;
+  color: #888;
+}
